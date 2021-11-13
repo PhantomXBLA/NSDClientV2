@@ -61,6 +61,8 @@ public class GameSystemManager : MonoBehaviour
     public void OnSubmitButtonPressed()
     {
         Debug.Log("button pressed");
+
+        Debug.Log(UsernameInput.GetComponent<InputField>().text);
     }
 
     public void LoginToggleChanged(bool changedValue)
