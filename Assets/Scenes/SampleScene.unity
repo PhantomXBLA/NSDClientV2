@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 99344725}
   - component: {fileID: 99344726}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: LoginToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -463,7 +463,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37.6, y: -139}
+  m_AnchoredPosition: {x: 0, y: -139}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &99344726
@@ -1514,7 +1514,7 @@ GameObject:
   - component: {fileID: 738890914}
   - component: {fileID: 738890915}
   m_Layer: 5
-  m_Name: Toggle (1)
+  m_Name: CreateAccountToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1538,7 +1538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 119.8, y: -139}
+  m_AnchoredPosition: {x: 0, y: -165.1}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &738890915
@@ -2982,7 +2982,7 @@ RectTransform:
   m_GameObject: {fileID: 1827555103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 2064288428}
   - {fileID: 1315430261}
@@ -2996,7 +2996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 103.05}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1949921470
@@ -3012,7 +3012,7 @@ GameObject:
   - component: {fileID: 1949921473}
   - component: {fileID: 1949921472}
   m_Layer: 5
-  m_Name: Button
+  m_Name: SubmitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
