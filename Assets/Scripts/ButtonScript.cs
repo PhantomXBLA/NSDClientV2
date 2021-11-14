@@ -6,11 +6,23 @@ public class ButtonScript : MonoBehaviour
 {
     public GameObject X;
     public GameObject O;
+
+    GameObject NetworkedClient;
+
+    public int buttonID;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+
+        foreach (GameObject go in allObjects)
+        {
+            if(go.name == "NetworkedClient")
+            {
+                NetworkedClient = go;
+            }
+        }
+        }
 
     // Update is called once per frame
     void Update()
@@ -20,8 +32,11 @@ public class ButtonScript : MonoBehaviour
 
     public void onclickButton()
     {
-        Debug.Log(this.gameObject.name);
+        string msg;
+        //msg = this.gameObject.name + "";
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + GameSignifiers.PlayerMoved + "," + buttonID);
         Instantiate(X, this.gameObject.transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
 
     }
 }

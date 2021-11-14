@@ -12,7 +12,7 @@ public class NetworkedClient : MonoBehaviour
     int reliableChannelID;
     int unreliableChannelID;
     int hostID;
-    int socketPort = 5491;
+    int socketPort = 5491; //change back to 5491
     byte error;
     bool isConnected = false;
     int ourClientID;
@@ -91,7 +91,7 @@ public class NetworkedClient : MonoBehaviour
             hostID = NetworkTransport.AddHost(topology, 0);
             Debug.Log("Socket open.  Host ID = " + hostID);
 
-            connectionID = NetworkTransport.Connect(hostID, "192.168.0.160", socketPort, 0, out error); // server is local on network
+            connectionID = NetworkTransport.Connect(hostID, "192.168.0.160", socketPort, 0, out error); // server is local on network ->change back to 192.168.0.160
 
             if (error == 0)
             {
@@ -131,6 +131,10 @@ public class NetworkedClient : MonoBehaviour
         else if (signifier == ServerToClientSignifiers.GameStart)
         {
             gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.Game);
+
+            
+
+
         }
         else if (signifier == ServerToClientSignifiers.OpponentPlay)
         {
@@ -151,6 +155,11 @@ public static class ClientToServerSignifiers
 
     public const int JoinGameRoomQueue = 3;
     public const int InGame = 4;
+}
+
+public static class GameSignifiers
+{
+    public const int PlayerMoved = 1;
 }
 
 public static class ServerToClientSignifiers
