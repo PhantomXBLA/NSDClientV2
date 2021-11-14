@@ -19,9 +19,12 @@ public class GameSystemManager : MonoBehaviour
     GameObject JoinGameRoomButton;
 
     GameObject Game;
+    GameObject LoginScreen;
+
 
     void Start()
     {
+
         GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
 
         foreach (GameObject go in allObjects)
@@ -65,11 +68,18 @@ public class GameSystemManager : MonoBehaviour
             {
                 Game = go;
             }
+
+            else if (go.name == "LoginScreen")
+            {
+                LoginScreen = go;
+            }
         }
 
         SubmitButton.GetComponent<Button>().onClick.AddListener(OnSubmitButtonPressed);
         LoginToggle.GetComponent<Toggle>().onValueChanged.AddListener(LoginToggleChanged);
         CreateAccountToggle.GetComponent<Toggle>().onValueChanged.AddListener(AccountToggleChanged);
+
+        changeState(GameStates.LoginMenu);
 
     }
 
@@ -114,21 +124,24 @@ public class GameSystemManager : MonoBehaviour
 
     public void changeState(int newState)
     {
-        JoinGameRoomButton.SetActive(false);
-        SubmitButton.SetActive(true);
-        UsernameInput.SetActive(true);
-        PasswordInput.SetActive(true);
+        LoginScreen.SetActive(false);
 
-        LoginToggle.SetActive(true);
-        CreateAccountToggle.SetActive(true);
+        JoinGameRoomButton.SetActive(false);
+
+        //Game.SetActive(false);
 
         if (newState == GameStates.LoginMenu)
         {
-
+            LoginScreen.SetActive(true);
         }
         else if (newState == GameStates.MainMenu)
         {
+            LoginScreen.SetActive(false);
             JoinGameRoomButton.SetActive(true);
+        }
+        else if (newState == GameStates.WaitingInQueue)
+        {
+
         }
         else if (newState == GameStates.Game)
         {
@@ -143,23 +156,7 @@ static public class GameStates
 {
     public const int LoginMenu = 1;
     public const int MainMenu = 2;
-    public const int Game = 3;
-}
-
-
-
-public static class ClientToServerSignifiers
-{
-    public const int CreateAccount = 1;
-    public const int Login = 2;
-}
-
-public static class ServerToClientSignifiers
-{
-    public const int LoginComplete = 1;
-    public const int LoginFailed = 2;
-
-    public const int AccountCreationComplete = 3;
-    public const int AccountCreationFailed = 3;
+    public const int WaitingInQueue = 3;
+    public const int Game = 4;
 }
 
