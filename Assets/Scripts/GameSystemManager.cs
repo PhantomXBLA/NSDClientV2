@@ -18,7 +18,7 @@ public class GameSystemManager : MonoBehaviour
 
     GameObject JoinGameRoomButton;
 
-    GameObject Game;
+    GameObject Grid;
     GameObject LoginScreen;
 
 
@@ -66,7 +66,7 @@ public class GameSystemManager : MonoBehaviour
 
             else if (go.name == "Grid")
             {
-                Game = go;
+                Grid = go;
             }
 
             else if (go.name == "LoginScreen")
@@ -78,6 +78,7 @@ public class GameSystemManager : MonoBehaviour
         SubmitButton.GetComponent<Button>().onClick.AddListener(OnSubmitButtonPressed);
         LoginToggle.GetComponent<Toggle>().onValueChanged.AddListener(LoginToggleChanged);
         CreateAccountToggle.GetComponent<Toggle>().onValueChanged.AddListener(AccountToggleChanged);
+        JoinGameRoomButton.GetComponent<Button>().onClick.AddListener(OnJoinGameRoomButtonPressed);
 
         changeState(GameStates.LoginMenu);
 
@@ -112,6 +113,12 @@ public class GameSystemManager : MonoBehaviour
 
     }
 
+    public void OnJoinGameRoomButtonPressed()
+    {
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.JoinGameRoomQueue + "");
+        changeState(GameStates.WaitingInQueue);
+    }
+
     public void LoginToggleChanged(bool changedValue)
     {
         CreateAccountToggle.GetComponent<Toggle>().SetIsOnWithoutNotify(!changedValue);
@@ -128,7 +135,7 @@ public class GameSystemManager : MonoBehaviour
 
         JoinGameRoomButton.SetActive(false);
 
-        //Game.SetActive(false);
+        Grid.SetActive(false);
 
         if (newState == GameStates.LoginMenu)
         {
@@ -145,7 +152,7 @@ public class GameSystemManager : MonoBehaviour
         }
         else if (newState == GameStates.Game)
         {
-            Game.SetActive(true);
+            Grid.SetActive(true);
         }
 
 
