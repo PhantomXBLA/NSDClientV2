@@ -16,11 +16,15 @@ public class GameSystemManager : MonoBehaviour
 
     GameObject NetworkedClient;
 
+    GameObject JoinGameRoomButton;
+
+    GameObject Game;
+
     void Start()
     {
         GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
 
-        foreach(GameObject go in allObjects)
+        foreach (GameObject go in allObjects)
         {
             if (go.name == "UsernameInput")
             {
@@ -51,6 +55,16 @@ public class GameSystemManager : MonoBehaviour
             {
                 NetworkedClient = go;
             }
+
+            else if (go.name == "JoinGameRoomButton")
+            {
+                JoinGameRoomButton = go;
+            }
+
+            else if (go.name == "Grid")
+            {
+                Game = go;
+            }
         }
 
         SubmitButton.GetComponent<Button>().onClick.AddListener(OnSubmitButtonPressed);
@@ -62,7 +76,7 @@ public class GameSystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void OnSubmitButtonPressed()
@@ -97,7 +111,42 @@ public class GameSystemManager : MonoBehaviour
     {
         LoginToggle.GetComponent<Toggle>().SetIsOnWithoutNotify(!changedValue);
     }
+
+    public void changeState(int newState)
+    {
+        JoinGameRoomButton.SetActive(false);
+        SubmitButton.SetActive(true);
+        UsernameInput.SetActive(true);
+        PasswordInput.SetActive(true);
+
+        LoginToggle.SetActive(true);
+        CreateAccountToggle.SetActive(true);
+
+        if (newState == GameStates.LoginMenu)
+        {
+
+        }
+        else if (newState == GameStates.MainMenu)
+        {
+            JoinGameRoomButton.SetActive(true);
+        }
+        else if (newState == GameStates.Game)
+        {
+            Game.SetActive(true);
+        }
+
+
+    }
 }
+
+static public class GameStates
+{
+    public const int LoginMenu = 1;
+    public const int MainMenu = 2;
+    public const int Game = 3;
+}
+
+
 
 public static class ClientToServerSignifiers
 {
@@ -113,3 +162,4 @@ public static class ServerToClientSignifiers
     public const int AccountCreationComplete = 3;
     public const int AccountCreationFailed = 3;
 }
+
