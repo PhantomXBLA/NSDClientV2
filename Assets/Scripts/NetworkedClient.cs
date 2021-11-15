@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class NetworkedClient : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class NetworkedClient : MonoBehaviour
     int ourClientID;
 
     GameObject gameSystemManager;
+    public Button Center;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +41,10 @@ public class NetworkedClient : MonoBehaviour
     void Update()
     {
         //if (Input.GetKeyDown(KeyCode.S))
-        //    SendMessageToHost("Hello from client");
+        //    //float boxX = float.Parse(csv[3]);
+        //    //float boxY = float.Parse(csv[4]);
+
+        //    //Center.GetComponent<ButtonScript>().drawShape(0, 0);
 
         UpdateNetworkConnection();
     }
@@ -139,6 +144,16 @@ public class NetworkedClient : MonoBehaviour
         else if (signifier == ServerToClientSignifiers.OpponentPlay)
         {
             Debug.Log("opponent play");
+        }
+
+        else if(signifier == GameSignifiers.PlayerMoved)
+        {
+            float boxX = float.Parse(csv[3]);
+            float boxY = float.Parse(csv[4]);
+
+            Debug.Log(boxX);
+
+            Center.GetComponent<ButtonScript>().drawShape(boxX, boxY);
         }
     }
 

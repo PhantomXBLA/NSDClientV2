@@ -10,6 +10,9 @@ public class ButtonScript : MonoBehaviour
     GameObject NetworkedClient;
 
     public int buttonID;
+
+    public float boxX;
+    public float boxY;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,11 +35,15 @@ public class ButtonScript : MonoBehaviour
 
     public void onclickButton()
     {
-        string msg;
-        //msg = this.gameObject.name + "";
-        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + GameSignifiers.PlayerMoved + "," + buttonID);
-        Instantiate(X, this.gameObject.transform.position, Quaternion.identity);
-        Destroy(this.gameObject);
+        boxX = this.gameObject.transform.position.x;
+        boxY = this.gameObject.transform.position.y;
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + GameSignifiers.PlayerMoved + "," + buttonID + "," + boxX + "," +boxY);
+        drawShape(boxX, boxY);
+    }             
 
+    public void drawShape(float BoxX, float BoxY)
+    {
+        Instantiate(X, new Vector3(BoxX, BoxY), Quaternion.identity);
+        Destroy(this.gameObject);
     }
 }
