@@ -10,6 +10,7 @@ public class ButtonScript : MonoBehaviour
     GameObject NetworkedClient;
 
     public int buttonID;
+    public string buttonName;
 
     public float boxX;
     public float boxY;
@@ -37,7 +38,9 @@ public class ButtonScript : MonoBehaviour
     {
         boxX = this.gameObject.transform.position.x;
         boxY = this.gameObject.transform.position.y;
-        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + GameSignifiers.PlayerMoved + "," + buttonID + "," + boxX + "," +boxY);
+        
+
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + GameSignifiers.PlayerMoved + "," + buttonName + "," + boxX + "," +boxY);
         drawShape(boxX, boxY);
     }             
 

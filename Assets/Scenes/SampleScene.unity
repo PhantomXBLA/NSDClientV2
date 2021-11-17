@@ -350,6 +350,7 @@ MonoBehaviour:
   X: {fileID: 389793958188930781, guid: 905462612ff0e7946802062c55777276, type: 3}
   O: {fileID: 6798758315826762007, guid: 049c6b5bafa68e14e8d360934d754f9b, type: 3}
   buttonID: 5
+  buttonName: Center
   boxX: 0
   boxY: 0
 --- !u!1 &49292898
@@ -747,6 +748,7 @@ MonoBehaviour:
   X: {fileID: 389793958188930781, guid: 905462612ff0e7946802062c55777276, type: 3}
   O: {fileID: 6798758315826762007, guid: 049c6b5bafa68e14e8d360934d754f9b, type: 3}
   buttonID: 7
+  buttonName: Bottom Left
   boxX: 0
   boxY: 0
 --- !u!1 &313727930
@@ -897,6 +899,7 @@ MonoBehaviour:
   X: {fileID: 389793958188930781, guid: 905462612ff0e7946802062c55777276, type: 3}
   O: {fileID: 6798758315826762007, guid: 049c6b5bafa68e14e8d360934d754f9b, type: 3}
   buttonID: 4
+  buttonName: Center Left
   boxX: 0
   boxY: 0
 --- !u!1 &330496243
@@ -1202,6 +1205,7 @@ MonoBehaviour:
   X: {fileID: 389793958188930781, guid: 905462612ff0e7946802062c55777276, type: 3}
   O: {fileID: 6798758315826762007, guid: 049c6b5bafa68e14e8d360934d754f9b, type: 3}
   buttonID: 9
+  buttonName: Bottom Right
   boxX: 0
   boxY: 0
 --- !u!1 &519420028
@@ -1598,6 +1602,7 @@ MonoBehaviour:
   X: {fileID: 389793958188930781, guid: 905462612ff0e7946802062c55777276, type: 3}
   O: {fileID: 6798758315826762007, guid: 049c6b5bafa68e14e8d360934d754f9b, type: 3}
   buttonID: 2
+  buttonName: Top Center
   boxX: 0
   boxY: 0
 --- !u!1 &738890913
@@ -2091,6 +2096,7 @@ MonoBehaviour:
   X: {fileID: 389793958188930781, guid: 905462612ff0e7946802062c55777276, type: 3}
   O: {fileID: 6798758315826762007, guid: 049c6b5bafa68e14e8d360934d754f9b, type: 3}
   buttonID: 8
+  buttonName: Bottom Center
   boxX: 0
   boxY: 0
 --- !u!1 &958740085
@@ -2650,7 +2656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1870ae9d85929e41be3c9b6821c7730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Center: {fileID: 30787971}
+  ButtonPressed: {fileID: 0}
 --- !u!4 &1360798223
 Transform:
   m_ObjectHideFlags: 0
@@ -2813,6 +2819,7 @@ MonoBehaviour:
   X: {fileID: 389793958188930781, guid: 905462612ff0e7946802062c55777276, type: 3}
   O: {fileID: 6798758315826762007, guid: 049c6b5bafa68e14e8d360934d754f9b, type: 3}
   buttonID: 3
+  buttonName: Top Right
   boxX: 0
   boxY: 0
 --- !u!1 &1478359372
@@ -3317,6 +3324,7 @@ MonoBehaviour:
   X: {fileID: 389793958188930781, guid: 905462612ff0e7946802062c55777276, type: 3}
   O: {fileID: 6798758315826762007, guid: 049c6b5bafa68e14e8d360934d754f9b, type: 3}
   buttonID: 1
+  buttonName: Top Left
   boxX: 0
   boxY: 0
 --- !u!1 &1815632036
@@ -3467,6 +3475,7 @@ MonoBehaviour:
   X: {fileID: 389793958188930781, guid: 905462612ff0e7946802062c55777276, type: 3}
   O: {fileID: 6798758315826762007, guid: 049c6b5bafa68e14e8d360934d754f9b, type: 3}
   buttonID: 6
+  buttonName: Center Right
   boxX: 0
   boxY: 0
 --- !u!1 &1827555103

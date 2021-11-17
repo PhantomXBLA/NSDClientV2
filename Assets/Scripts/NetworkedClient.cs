@@ -19,7 +19,7 @@ public class NetworkedClient : MonoBehaviour
     int ourClientID;
 
     GameObject gameSystemManager;
-    public Button Center;
+    public Button ButtonPressed;
 
     // Start is called before the first frame update
     void Start()
@@ -136,25 +136,37 @@ public class NetworkedClient : MonoBehaviour
         else if (signifier == ServerToClientSignifiers.GameStart)
         {
             gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.Game);
-
-            
-
+         
 
         }
         else if (signifier == ServerToClientSignifiers.OpponentPlay)
         {
             Debug.Log("opponent play");
         }
+        
 
-        else if(signifier == GameSignifiers.PlayerMoved)
+        else if (signifier == ClientToServerSignifiers.InGame)
         {
-            float boxX = float.Parse(csv[3]);
-            float boxY = float.Parse(csv[4]);
+            int GameSignifier = int.Parse(csv[1]);
 
-            Debug.Log(boxX);
+            if(GameSignifier == GameSignifiers.PlayerMoved)
+            {
+                //float boxX = float.Parse(csv[3]);
+                //float boxY = float.Parse(csv[4]);
 
-            Center.GetComponent<ButtonScript>().drawShape(boxX, boxY);
+                string buttonName = (csv[2]);
+
+                Debug.Log(buttonName);
+
+                ButtonPressed = GameObject.Find(buttonName).GetComponent<Button>();
+                //.Log(boxX);
+
+                ButtonPressed.GetComponent<ButtonScript>().drawShape(0, 0);
+            }
+
         }
+
+
     }
 
     public bool IsConnected()
