@@ -21,6 +21,8 @@ public class NetworkedClient : MonoBehaviour
     GameObject gameSystemManager;
     public Button ButtonPressed;
 
+    public GameObject O;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -160,7 +162,7 @@ public class NetworkedClient : MonoBehaviour
 
                 ButtonPressed = GameObject.Find(buttonName).GetComponent<Button>();
 
-                ButtonPressed.GetComponent<ButtonScript>().drawShape(boxX, boxY);
+                ButtonPressed.GetComponent<ButtonScript>().drawShape(O, boxX, boxY);
             }
 
         }

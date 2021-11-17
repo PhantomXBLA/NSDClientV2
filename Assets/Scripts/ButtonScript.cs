@@ -7,6 +7,8 @@ public class ButtonScript : MonoBehaviour
     public GameObject X;
     public GameObject O;
 
+
+
     GameObject NetworkedClient;
 
     public int buttonID;
@@ -41,12 +43,12 @@ public class ButtonScript : MonoBehaviour
         
 
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + GameSignifiers.PlayerMoved + "," + buttonName + "," + boxX + "," +boxY);
-        drawShape(boxX, boxY);
+        drawShape(X, boxX, boxY);
     }             
 
-    public void drawShape(float BoxX, float BoxY)
+    public void drawShape(GameObject shape, float BoxX, float BoxY)
     {
-        Instantiate(X, new Vector3(BoxX, BoxY), Quaternion.identity);
+        Instantiate(shape, new Vector3(BoxX, BoxY), Quaternion.identity);
         Destroy(this.gameObject);
     }
 }
