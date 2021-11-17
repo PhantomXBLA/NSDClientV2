@@ -151,17 +151,16 @@ public class NetworkedClient : MonoBehaviour
 
             if(GameSignifier == GameSignifiers.PlayerMoved)
             {
-                //float boxX = float.Parse(csv[3]);
-                //float boxY = float.Parse(csv[4]);
+                float boxX = float.Parse(csv[2]);
+                float boxY = float.Parse(csv[3]);
 
-                string buttonName = (csv[2]);
+                string buttonName = (csv[4]);
 
                 Debug.Log(buttonName);
 
                 ButtonPressed = GameObject.Find(buttonName).GetComponent<Button>();
-                //.Log(boxX);
 
-                ButtonPressed.GetComponent<ButtonScript>().drawShape(0, 0);
+                ButtonPressed.GetComponent<ButtonScript>().drawShape(boxX, boxY);
             }
 
         }
