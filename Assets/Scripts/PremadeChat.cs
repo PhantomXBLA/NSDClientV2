@@ -20,22 +20,22 @@ public class PremadeChat : MonoBehaviour
     {
         if (dropdownMenu.value == 1)
         {
-            chat.text = "What a save!";
+            chat.text = dropdownMenu.options[1].text;
         }
 
         if (dropdownMenu.value == 2)
         {
-            chat.text = "No fair!";
+            chat.text = dropdownMenu.options[2].text;
         }
 
         if (dropdownMenu.value == 3)
         {
-            chat.text = "Good game.";
+            chat.text = dropdownMenu.options[3].text;
         }
 
         if (dropdownMenu.value == 4)
         {
-            chat.text = "Too easy.";
+            chat.text = dropdownMenu.options[4].text;
         }
 
 
