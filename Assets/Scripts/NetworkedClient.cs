@@ -24,6 +24,8 @@ public class NetworkedClient : MonoBehaviour
     public GameObject O;
     public GameObject X;
 
+    public Text premadeText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -172,6 +174,14 @@ public class NetworkedClient : MonoBehaviour
                     ButtonPressed.GetComponent<ButtonScript>().drawShape(X, boxX, boxY);
                 }
                 
+            }
+
+            if(GameSignifier == ChatSignifiers.PremadeMessage)
+            {
+                string premadeMessage = csv[2];
+                //Debug.Log(premadeMessage);
+
+                premadeText.text = premadeMessage;
             }
 
         }

@@ -44,16 +44,22 @@ public class PremadeChat : MonoBehaviour
         if (dropdownMenu.value == 2)
         {
             chat.text = dropdownMenu.options[2].text;
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + ChatSignifiers.PremadeMessage + "," + chat.text);
+
         }
 
         if (dropdownMenu.value == 3)
         {
             chat.text = dropdownMenu.options[3].text;
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + ChatSignifiers.PremadeMessage + "," + chat.text);
+
         }
 
         if (dropdownMenu.value == 4)
         {
             chat.text = dropdownMenu.options[4].text;
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + ChatSignifiers.PremadeMessage + "," + chat.text);
+
         }
 
 
