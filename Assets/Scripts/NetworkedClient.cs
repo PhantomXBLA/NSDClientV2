@@ -22,6 +22,7 @@ public class NetworkedClient : MonoBehaviour
     public Button ButtonPressed;
 
     public GameObject O;
+    public GameObject X;
 
     // Start is called before the first frame update
     void Start()
@@ -157,12 +158,20 @@ public class NetworkedClient : MonoBehaviour
                 float boxY = float.Parse(csv[3]);
 
                 string buttonName = (csv[4]);
-
+                int playerID = int.Parse(csv[5]);
                 Debug.Log(buttonName);
 
                 ButtonPressed = GameObject.Find(buttonName).GetComponent<Button>();
 
-                ButtonPressed.GetComponent<ButtonScript>().drawShape(O, boxX, boxY);
+                if(playerID == 1)
+                {
+                    ButtonPressed.GetComponent<ButtonScript>().drawShape(O, boxX, boxY);
+                }
+                else
+                {
+                    ButtonPressed.GetComponent<ButtonScript>().drawShape(X, boxX, boxY);
+                }
+                
             }
 
         }

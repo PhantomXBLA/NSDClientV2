@@ -43,7 +43,7 @@ public class ButtonScript : MonoBehaviour
         
 
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + GameSignifiers.PlayerMoved + "," + buttonName + "," + boxX + "," +boxY);
-        drawShape(X, boxX, boxY);
+        //drawShape(X, boxX, boxY);
     }             
 
     public void drawShape(GameObject shape, float BoxX, float BoxY)
