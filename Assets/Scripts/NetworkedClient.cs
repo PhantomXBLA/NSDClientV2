@@ -154,7 +154,8 @@ public class NetworkedClient : MonoBehaviour
         {
             int GameSignifier = int.Parse(csv[1]);
 
-            if(GameSignifier == GameSignifiers.PlayerMoved)
+
+            if (GameSignifier == GameSignifiers.PlayerMoved)
             {
                 float boxX = float.Parse(csv[2]);
                 float boxY = float.Parse(csv[3]);
@@ -163,11 +164,15 @@ public class NetworkedClient : MonoBehaviour
                 int playerID = int.Parse(csv[5]);
                 Debug.Log(buttonName);
 
-                ButtonPressed = GameObject.Find(buttonName).GetComponent<Button>();
 
-                if(playerID == 1)
+
+                ButtonPressed = GameObject.Find(buttonName).GetComponent<Button>();
+               
+
+                if (playerID == 1)
                 {
                     ButtonPressed.GetComponent<ButtonScript>().drawShape(O, boxX, boxY);
+
                 }
                 else
                 {
@@ -176,10 +181,13 @@ public class NetworkedClient : MonoBehaviour
                 
             }
 
-            if(GameSignifier == ChatSignifiers.PremadeMessage)
+            
+
+
+            if (GameSignifier == ChatSignifiers.PremadeMessage)
             {
                 string premadeMessage = csv[2];
-                //Debug.Log(premadeMessage);
+                Debug.Log(premadeMessage);
 
                 premadeText.text = premadeMessage;
             }
