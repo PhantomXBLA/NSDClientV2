@@ -17,7 +17,7 @@ public class GameSystemManager : MonoBehaviour
     GameObject NetworkedClient;
 
     GameObject JoinGameRoomButton;
-    GameObject ReadyButton;
+    GameObject WaitingForPlayerText;
 
     GameObject Grid;
     GameObject LoginScreen;
@@ -75,9 +75,9 @@ public class GameSystemManager : MonoBehaviour
                 LoginScreen = go;
             }
 
-            else if (go.name == "ReadyButton")
+            else if (go.name == "WaitingForPlayerText")
             {
-                ReadyButton = go;
+                WaitingForPlayerText = go;
             }
         }
 
@@ -85,7 +85,6 @@ public class GameSystemManager : MonoBehaviour
         LoginToggle.GetComponent<Toggle>().onValueChanged.AddListener(LoginToggleChanged);
         CreateAccountToggle.GetComponent<Toggle>().onValueChanged.AddListener(AccountToggleChanged);
         JoinGameRoomButton.GetComponent<Button>().onClick.AddListener(OnJoinGameRoomButtonPressed);
-        //ReadyButton.GetComponent<Button>().onClick.AddListener(ReadyUpButtonPressed);
 
 
         changeState(GameStates.LoginMenu);
@@ -127,12 +126,6 @@ public class GameSystemManager : MonoBehaviour
         changeState(GameStates.WaitingInQueue);
     }
 
-    public void ReadyUpButtonPressed()
-    {
-        ReadyButton.GetComponent<Button>().onClick.AddListener(ReadyUpButtonPressed);
-
-    }
-
     public void LoginToggleChanged(bool changedValue)
     {
         CreateAccountToggle.GetComponent<Toggle>().SetIsOnWithoutNotify(!changedValue);
@@ -151,7 +144,7 @@ public class GameSystemManager : MonoBehaviour
 
         Grid.SetActive(false);
 
-        ReadyButton.SetActive(false);
+        WaitingForPlayerText.SetActive(false);
 
         if (newState == GameStates.LoginMenu)
         {
@@ -164,13 +157,16 @@ public class GameSystemManager : MonoBehaviour
         }
         else if (newState == GameStates.WaitingInQueue)
         {
-            //ReadyButton.SetActive(false);
+            WaitingForPlayerText.SetActive(true);
+
 
 
         }
         else if (newState == GameStates.Game)
         {
             Grid.SetActive(true);
+            WaitingForPlayerText.SetActive(false);
+
         }
 
 

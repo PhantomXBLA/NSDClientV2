@@ -49,6 +49,7 @@ public class ButtonScript : MonoBehaviour
     public void drawShape(GameObject shape, float BoxX, float BoxY)
     {
         Instantiate(shape, new Vector3(BoxX, BoxY), Quaternion.identity);
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
     }
 }
