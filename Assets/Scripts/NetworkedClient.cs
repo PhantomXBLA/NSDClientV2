@@ -199,6 +199,12 @@ public static class GameSignifiers
     public const int PlayerMoved = 1;
 }
 
+public static class ChatSignifiers
+{
+    public const int PremadeMessage = 2;
+    public const int Message = 3;
+}
+
 public static class ServerToClientSignifiers
 {
     public const int LoginComplete = 1;
@@ -209,6 +215,7 @@ public static class ServerToClientSignifiers
 
     public const int OpponentPlay = 5;
     public const int GameStart = 6;
+
 
 
 }
