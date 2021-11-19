@@ -14,6 +14,9 @@ public class PremadeChat : MonoBehaviour
 
     string textMessage;
 
+    public GameObject chatInput;
+    public GameObject sendButton;
+
     // Start is called before the first frame update
 
 
@@ -31,6 +34,9 @@ public class PremadeChat : MonoBehaviour
                 NetworkedClient = go;
             }
         }
+
+        sendButton.GetComponent<Button>().onClick.AddListener(OnSendButtonPressed);
+
 
     }
 
@@ -67,6 +73,14 @@ public class PremadeChat : MonoBehaviour
             NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + ChatSignifiers.PremadeMessage + "," + textMessage);
 
         }
+
+
+    }
+
+    void OnSendButtonPressed()
+    {
+        string message = chatInput.GetComponent<InputField>().text;
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + ChatSignifiers.Message + "," + message);
 
 
     }

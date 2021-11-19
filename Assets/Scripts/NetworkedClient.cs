@@ -259,6 +259,22 @@ public class NetworkedClient : MonoBehaviour
 
                 
             }
+            
+            else if(GameSignifier == ChatSignifiers.Message)
+            {
+                string message = csv[2];
+                int playerID = int.Parse(csv[3]);
+
+                if (playerID == 1)
+                {
+                    premadeTextP2.text = "P1: " + message;
+                }
+
+                if (playerID == 2)
+                {
+                    premadeText.text = "P2: " + message;
+                }
+            }
 
         }
 
