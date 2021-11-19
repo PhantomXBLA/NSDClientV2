@@ -21,6 +21,8 @@ public class NetworkedClient : MonoBehaviour
     GameObject gameSystemManager;
     public Button ButtonPressed;
 
+    
+
     public GameObject O;
     public GameObject X;
 
@@ -148,7 +150,20 @@ public class NetworkedClient : MonoBehaviour
         {
             Debug.Log("opponent play");
         }
-        
+
+        else if (signifier == ServerToClientSignifiers.GameEnd)
+        {
+            Debug.Log("opponent play");
+            GameObject[] allShapes = GameObject.FindGameObjectsWithTag("Shape");
+
+
+            for (int i = 0; i < allShapes.Length; i++)
+            {
+                Destroy(allShapes[i]);
+            }
+        }
+
+
 
         else if (signifier == ClientToServerSignifiers.InGame)
         {
