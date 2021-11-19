@@ -247,12 +247,12 @@ public class NetworkedClient : MonoBehaviour
 
                 if(playerID == 1)
                 {
-                    premadeTextP2.text = premadeMessage;
+                    premadeTextP2.text = "P1: "+ premadeMessage;
                 }
 
                if(playerID == 2)
                 {
-                    premadeText.text = premadeMessage;
+                    premadeText.text = "P2: " + premadeMessage;
                 }
 
                 Debug.Log(premadeMessage);
