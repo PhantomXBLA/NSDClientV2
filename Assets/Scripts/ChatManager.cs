@@ -82,6 +82,7 @@ public class ChatManager : MonoBehaviour
     {
         string message = chatInput.GetComponent<InputField>().text;
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + ChatSignifiers.Message + "," + message);
+        chatInput.GetComponent<InputField>().text = "";
 
 
     }
