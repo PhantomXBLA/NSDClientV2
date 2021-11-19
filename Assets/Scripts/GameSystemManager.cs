@@ -17,6 +17,7 @@ public class GameSystemManager : MonoBehaviour
     GameObject NetworkedClient;
 
     GameObject JoinGameRoomButton;
+    GameObject ReplayButton;
     GameObject WaitingForPlayerText;
 
     GameObject Grid;
@@ -79,12 +80,18 @@ public class GameSystemManager : MonoBehaviour
             {
                 WaitingForPlayerText = go;
             }
+            else if (go.name == "ReplayButton")
+            {
+                ReplayButton = go;
+            }
         }
 
         SubmitButton.GetComponent<Button>().onClick.AddListener(OnSubmitButtonPressed);
         LoginToggle.GetComponent<Toggle>().onValueChanged.AddListener(LoginToggleChanged);
         CreateAccountToggle.GetComponent<Toggle>().onValueChanged.AddListener(AccountToggleChanged);
         JoinGameRoomButton.GetComponent<Button>().onClick.AddListener(OnJoinGameRoomButtonPressed);
+        ReplayButton.GetComponent<Button>().onClick.AddListener(OnReplayButtonPressed);
+
 
 
         changeState(GameStates.LoginMenu);
@@ -124,6 +131,13 @@ public class GameSystemManager : MonoBehaviour
     {
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.JoinGameRoomQueue + "");
         changeState(GameStates.WaitingInQueue);
+    }
+
+    public void OnReplayButtonPressed()
+    {
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.JoinReplay + "");
+        changeState(GameStates.Replay);
+
     }
 
     public void LoginToggleChanged(bool changedValue)
@@ -169,6 +183,10 @@ public class GameSystemManager : MonoBehaviour
 
         }
 
+        else if(newState == GameStates.Replay)
+        {
+            Grid.SetActive(true);
+        }
 
     }
 }
@@ -179,5 +197,6 @@ static public class GameStates
     public const int MainMenu = 2;
     public const int WaitingInQueue = 3;
     public const int Game = 4;
+    public const int Replay = 5;
 }
 

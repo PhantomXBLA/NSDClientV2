@@ -210,6 +210,8 @@ public static class ClientToServerSignifiers
 
     public const int JoinGameRoomQueue = 3;
     public const int InGame = 4;
+
+    public const int JoinReplay = 5;
 }
 
 public static class GameSignifiers
@@ -233,6 +235,8 @@ public static class ServerToClientSignifiers
 
     public const int OpponentPlay = 5;
     public const int GameStart = 6;
+    public const int GameEnd = 7;
+
 
 
 
