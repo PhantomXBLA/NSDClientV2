@@ -1591,7 +1591,7 @@ GameObject:
   - component: {fileID: 390886926}
   - component: {fileID: 390886925}
   m_Layer: 5
-  m_Name: ChatWindowTextP1
+  m_Name: ChatWindowTextP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1873,6 +1873,7 @@ RectTransform:
   - {fileID: 235317458}
   - {fileID: 1548100092}
   - {fileID: 1459674295}
+  - {fileID: 594641882}
   m_Father: {fileID: 826033074}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1918,6 +1919,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578202945}
+  m_CullTransparentMesh: 1
+--- !u!1 &594641881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 594641882}
+  - component: {fileID: 594641884}
+  - component: {fileID: 594641883}
+  m_Layer: 5
+  m_Name: PlayerTurnLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &594641882
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594641881}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.14285715, y: 0.14285715, z: 1}
+  m_Children: []
+  m_Father: {fileID: 578202946}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -71.14288, y: 3.3}
+  m_SizeDelta: {x: 666.2, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &594641883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594641881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 128
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: Player 1's Turn (O)
+--- !u!222 &594641884
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594641881}
   m_CullTransparentMesh: 1
 --- !u!1 &596412548
 GameObject:
@@ -2463,7 +2543,7 @@ GameObject:
   - component: {fileID: 722104456}
   - component: {fileID: 722104455}
   m_Layer: 5
-  m_Name: ChatWindowTextP2
+  m_Name: ChatWindowTextP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4166,8 +4246,9 @@ MonoBehaviour:
   ButtonPressed: {fileID: 0}
   O: {fileID: 6798758315826762007, guid: 049c6b5bafa68e14e8d360934d754f9b, type: 3}
   X: {fileID: 389793958188930781, guid: 905462612ff0e7946802062c55777276, type: 3}
-  premadeText: {fileID: 390886925}
-  premadeTextP2: {fileID: 722104455}
+  textOutputP1: {fileID: 722104455}
+  textOutputP2: {fileID: 390886925}
+  playerTurnLabel: {fileID: 594641883}
 --- !u!4 &1360798223
 Transform:
   m_ObjectHideFlags: 0

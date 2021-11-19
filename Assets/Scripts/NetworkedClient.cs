@@ -26,8 +26,10 @@ public class NetworkedClient : MonoBehaviour
     public GameObject O;
     public GameObject X;
 
-    public Text premadeText;
-    public Text premadeTextP2;
+    public Text textOutputP1;
+    public Text textOutputP2;
+
+    public Text playerTurnLabel;
 
     // Start is called before the first frame update
     void Start()
@@ -48,11 +50,6 @@ public class NetworkedClient : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.S))
-        //    //float boxX = float.Parse(csv[3]);
-        //    //float boxY = float.Parse(csv[4]);
-
-        //    //Center.GetComponent<ButtonScript>().drawShape(0, 0);
 
         UpdateNetworkConnection();
     }
@@ -228,13 +225,16 @@ public class NetworkedClient : MonoBehaviour
                 if (playerID == 1)
                 {
                     ButtonPressed.GetComponent<ButtonScript>().drawShape(O, boxX, boxY);
+                    playerTurnLabel.text = "Player 2's Turn (X)";
 
                 }
                 else
                 {
                     ButtonPressed.GetComponent<ButtonScript>().drawShape(X, boxX, boxY);
+                    playerTurnLabel.text = "Player 1's Turn (O)";
+
                 }
-                
+
             }
 
             
@@ -247,12 +247,12 @@ public class NetworkedClient : MonoBehaviour
 
                 if(playerID == 1)
                 {
-                    premadeTextP2.text = "P1: "+ premadeMessage;
+                    textOutputP1.text = "P1: "+ premadeMessage;
                 }
 
                if(playerID == 2)
                 {
-                    premadeText.text = "P2: " + premadeMessage;
+                    textOutputP2.text = "P2: " + premadeMessage;
                 }
 
                 Debug.Log(premadeMessage);
@@ -267,12 +267,12 @@ public class NetworkedClient : MonoBehaviour
 
                 if (playerID == 1)
                 {
-                    premadeTextP2.text = "P1: " + message;
+                    textOutputP2.text = "P1: " + message;
                 }
 
                 if (playerID == 2)
                 {
-                    premadeText.text = "P2: " + message;
+                    textOutputP1.text = "P2: " + message;
                 }
             }
 
