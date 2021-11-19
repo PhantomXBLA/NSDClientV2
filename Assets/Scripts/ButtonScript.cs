@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class ButtonScript : MonoBehaviour
     {
         Instantiate(shape, new Vector3(BoxX, BoxY), Quaternion.identity);
         //Destroy(this.gameObject);
-        this.gameObject.SetActive(false);
+        ///this.gameObject.getSetActive(false);
+        this.gameObject.GetComponent<Button>().enabled = false;
     }
 }

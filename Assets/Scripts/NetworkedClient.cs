@@ -153,7 +153,6 @@ public class NetworkedClient : MonoBehaviour
 
         else if (signifier == ServerToClientSignifiers.GameEnd)
         {
-            Debug.Log("opponent play");
             GameObject[] allShapes = GameObject.FindGameObjectsWithTag("Shape");
 
 
@@ -161,6 +160,30 @@ public class NetworkedClient : MonoBehaviour
             {
                 Destroy(allShapes[i]);
             }
+
+            GameObject[] allButtons = GameObject.FindGameObjectsWithTag("GameButton");
+
+            for (int i = 0; i < allButtons.Length; i++)
+            {
+                allButtons[i].GetComponent<Button>().enabled = true;
+            }
+
+
+
+        }
+        else if (signifier == ServerToClientSignifiers.SendReplay)
+        {
+
+
+            Button replayButton;
+            string msgReceived = csv[1];
+            Debug.Log("yeet" + msgReceived);
+            replayButton = GameObject.Find(msgReceived).GetComponent<Button>();
+
+            replayButton.GetComponent<ButtonScript>().drawShape(X, replayButton.transform.position.x, replayButton.transform.position.y);
+
+
+
         }
 
 
@@ -251,6 +274,8 @@ public static class ServerToClientSignifiers
     public const int OpponentPlay = 5;
     public const int GameStart = 6;
     public const int GameEnd = 7;
+
+    public const int SendReplay = 8;
 
 
 
