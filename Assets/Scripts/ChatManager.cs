@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PremadeChat : MonoBehaviour
+public class ChatManager : MonoBehaviour
 {
 
     public Text chat;
@@ -36,6 +36,7 @@ public class PremadeChat : MonoBehaviour
         }
 
         sendButton.GetComponent<Button>().onClick.AddListener(OnSendButtonPressed);
+        chatInput.GetComponent<InputField>().characterLimit = 10;
 
 
     }
