@@ -21,7 +21,7 @@ public class NetworkedClient : MonoBehaviour
     GameObject gameSystemManager;
     public Button ButtonPressed;
 
-    
+    int playerTurn = 1;
 
     public GameObject O;
     public GameObject X;
@@ -175,12 +175,28 @@ public class NetworkedClient : MonoBehaviour
         {
 
 
+
             Button replayButton;
             string msgReceived = csv[1];
             Debug.Log("yeet" + msgReceived);
             replayButton = GameObject.Find(msgReceived).GetComponent<Button>();
 
-            replayButton.GetComponent<ButtonScript>().drawShape(X, replayButton.transform.position.x, replayButton.transform.position.y);
+            //replayButton.GetComponent<ButtonScript>().drawShape(O, replayButton.transform.position.x, replayButton.transform.position.y);
+
+            if (playerTurn == 1)
+            {
+                replayButton.GetComponent<ButtonScript>().drawShape(O, replayButton.transform.position.x, replayButton.transform.position.y);
+                playerTurn = 2;
+            }
+            
+            else if(playerTurn == 2)
+            {
+                replayButton.GetComponent<ButtonScript>().drawShape(X, replayButton.transform.position.x, replayButton.transform.position.y);
+                playerTurn = 1;
+            }
+
+            
+
 
 
 
