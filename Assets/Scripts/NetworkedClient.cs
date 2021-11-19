@@ -27,6 +27,7 @@ public class NetworkedClient : MonoBehaviour
     public GameObject X;
 
     public Text premadeText;
+    public Text premadeTextP2;
 
     // Start is called before the first frame update
     void Start()
@@ -176,26 +177,27 @@ public class NetworkedClient : MonoBehaviour
 
 
 
+
             Button replayButton;
             string msgReceived = csv[1];
             Debug.Log("yeet" + msgReceived);
             replayButton = GameObject.Find(msgReceived).GetComponent<Button>();
-
-            //replayButton.GetComponent<ButtonScript>().drawShape(O, replayButton.transform.position.x, replayButton.transform.position.y);
 
             if (playerTurn == 1)
             {
                 replayButton.GetComponent<ButtonScript>().drawShape(O, replayButton.transform.position.x, replayButton.transform.position.y);
                 playerTurn = 2;
             }
-            
-            else if(playerTurn == 2)
+
+            else if (playerTurn == 2)
             {
                 replayButton.GetComponent<ButtonScript>().drawShape(X, replayButton.transform.position.x, replayButton.transform.position.y);
                 playerTurn = 1;
             }
 
-            
+            //replayButton.GetComponent<ButtonScript>().drawShape(O, replayButton.transform.position.x, replayButton.transform.position.y);
+
+
 
 
 
@@ -241,9 +243,21 @@ public class NetworkedClient : MonoBehaviour
             if (GameSignifier == ChatSignifiers.PremadeMessage)
             {
                 string premadeMessage = csv[2];
+                int playerID = int.Parse(csv[3]);
+
+                if(playerID == 1)
+                {
+                    premadeTextP2.text = premadeMessage;
+                }
+
+               if(playerID == 2)
+                {
+                    premadeText.text = premadeMessage;
+                }
+
                 Debug.Log(premadeMessage);
 
-                premadeText.text = premadeMessage;
+                
             }
 
         }
