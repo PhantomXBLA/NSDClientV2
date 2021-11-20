@@ -54,4 +54,12 @@ public class ButtonScript : MonoBehaviour
         ///this.gameObject.getSetActive(false);
         this.gameObject.GetComponent<Button>().enabled = false;
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.name == "X(Clone)")
+        {
+            Debug.Log("X Colliding");
+        }
+    }
 }

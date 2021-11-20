@@ -364,7 +364,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -719,6 +719,7 @@ GameObject:
   - component: {fileID: 216789167}
   - component: {fileID: 216789169}
   - component: {fileID: 216789166}
+  - component: {fileID: 216789170}
   m_Layer: 5
   m_Name: Bottom Left
   m_TagString: GameButton
@@ -857,6 +858,32 @@ MonoBehaviour:
   buttonName: Bottom Left
   boxX: 0
   boxY: 0
+--- !u!61 &216789170
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216789164}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25}
+  m_EdgeRadius: 0
 --- !u!1 &235317457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,6 +1041,7 @@ GameObject:
   - component: {fileID: 313727933}
   - component: {fileID: 313727935}
   - component: {fileID: 313727932}
+  - component: {fileID: 313727936}
   m_Layer: 5
   m_Name: Center Left
   m_TagString: GameButton
@@ -1152,6 +1180,32 @@ MonoBehaviour:
   buttonName: Center Left
   boxX: 0
   boxY: 0
+--- !u!61 &313727936
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313727930}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25}
+  m_EdgeRadius: 0
 --- !u!1 &330496243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,6 +1495,7 @@ GameObject:
   - component: {fileID: 365783670}
   - component: {fileID: 365783672}
   - component: {fileID: 365783669}
+  - component: {fileID: 365783673}
   m_Layer: 5
   m_Name: Bottom Right
   m_TagString: GameButton
@@ -1579,6 +1634,32 @@ MonoBehaviour:
   buttonName: Bottom Right
   boxX: 0
   boxY: 0
+--- !u!61 &365783673
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365783667}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25}
+  m_EdgeRadius: 0
 --- !u!1 &390886923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +1955,7 @@ RectTransform:
   - {fileID: 1548100092}
   - {fileID: 1459674295}
   - {fileID: 594641882}
+  - {fileID: 1374234872}
   m_Father: {fileID: 826033074}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1990,7 +2072,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Player 1's Turn (O)
+  m_Text: Player 1's Turn ()
 --- !u!222 &594641884
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2393,6 +2475,7 @@ GameObject:
   - component: {fileID: 716561506}
   - component: {fileID: 716561508}
   - component: {fileID: 716561505}
+  - component: {fileID: 716561509}
   m_Layer: 5
   m_Name: Top Center
   m_TagString: GameButton
@@ -2531,6 +2614,32 @@ MonoBehaviour:
   buttonName: Top Center
   boxX: 0
   boxY: 0
+--- !u!61 &716561509
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716561503}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25}
+  m_EdgeRadius: 0
 --- !u!1 &722104454
 GameObject:
   m_ObjectHideFlags: 0
@@ -3120,6 +3229,7 @@ GameObject:
   - component: {fileID: 920705087}
   - component: {fileID: 920705089}
   - component: {fileID: 920705086}
+  - component: {fileID: 920705090}
   m_Layer: 5
   m_Name: Bottom Center
   m_TagString: GameButton
@@ -3258,6 +3368,32 @@ MonoBehaviour:
   buttonName: Bottom Center
   boxX: 0
   boxY: 0
+--- !u!61 &920705090
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920705084}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25}
+  m_EdgeRadius: 0
 --- !u!1 &1015669220
 GameObject:
   m_ObjectHideFlags: 0
@@ -4249,6 +4385,7 @@ MonoBehaviour:
   textOutputP1: {fileID: 722104455}
   textOutputP2: {fileID: 390886925}
   playerTurnLabel: {fileID: 594641883}
+  playerIdentifierLabel: {fileID: 1374234873}
 --- !u!4 &1360798223
 Transform:
   m_ObjectHideFlags: 0
@@ -4263,6 +4400,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1374234871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1374234872}
+  - component: {fileID: 1374234874}
+  - component: {fileID: 1374234873}
+  m_Layer: 5
+  m_Name: PlayerIdentifierLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1374234872
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374234871}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.14285715, y: 0.14285715, z: 1}
+  m_Children: []
+  m_Father: {fileID: 578202946}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -71.14288, y: 45.6}
+  m_SizeDelta: {x: 666.2, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1374234873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374234871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 128
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'You are:  ()'
+--- !u!222 &1374234874
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374234871}
+  m_CullTransparentMesh: 1
 --- !u!1 &1405186515
 GameObject:
   m_ObjectHideFlags: 0
@@ -4533,6 +4749,7 @@ GameObject:
   - component: {fileID: 1465453842}
   - component: {fileID: 1465453844}
   - component: {fileID: 1465453841}
+  - component: {fileID: 1465453845}
   m_Layer: 5
   m_Name: Top Right
   m_TagString: GameButton
@@ -4671,6 +4888,32 @@ MonoBehaviour:
   buttonName: Top Right
   boxX: 0
   boxY: 0
+--- !u!61 &1465453845
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465453839}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25}
+  m_EdgeRadius: 0
 --- !u!1 &1478359372
 GameObject:
   m_ObjectHideFlags: 0
@@ -5511,6 +5754,7 @@ GameObject:
   - component: {fileID: 1808596949}
   - component: {fileID: 1808596951}
   - component: {fileID: 1808596948}
+  - component: {fileID: 1808596952}
   m_Layer: 5
   m_Name: Top Left
   m_TagString: GameButton
@@ -5649,6 +5893,32 @@ MonoBehaviour:
   buttonName: Top Left
   boxX: 0
   boxY: 0
+--- !u!61 &1808596952
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808596946}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25}
+  m_EdgeRadius: 0
 --- !u!1 &1815632036
 GameObject:
   m_ObjectHideFlags: 0
@@ -5662,6 +5932,7 @@ GameObject:
   - component: {fileID: 1815632039}
   - component: {fileID: 1815632041}
   - component: {fileID: 1815632038}
+  - component: {fileID: 1815632042}
   m_Layer: 5
   m_Name: Center Right
   m_TagString: GameButton
@@ -5800,6 +6071,32 @@ MonoBehaviour:
   buttonName: Center Right
   boxX: 0
   boxY: 0
+--- !u!61 &1815632042
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815632036}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25}
+  m_EdgeRadius: 0
 --- !u!1 &1827555103
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,6 +30,7 @@ public class NetworkedClient : MonoBehaviour
     public Text textOutputP2;
 
     public Text playerTurnLabel;
+    public Text playerIdentifierLabel;
 
     // Start is called before the first frame update
     void Start()
@@ -130,6 +131,8 @@ public class NetworkedClient : MonoBehaviour
         string[] csv = msg.Split(',');
         int signifier = int.Parse(csv[0]);
 
+        
+
         if (signifier == ServerToClientSignifiers.AccountCreationComplete)
         {
             gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.MainMenu);
@@ -141,7 +144,26 @@ public class NetworkedClient : MonoBehaviour
         else if (signifier == ServerToClientSignifiers.GameStart)
         {
             gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.Game);
-         
+            int playerID = int.Parse(csv[1]);
+
+            if(playerID == 1)
+            {
+                Debug.Log("You are player one");
+                playerIdentifierLabel.text = "You are: P1 (O)";
+            }
+
+            if (playerID == 2)
+            {
+                Debug.Log("You are player two");
+                playerIdentifierLabel.text = "You are: P2 (X)";
+            }
+
+            //else
+            //{
+            //    Debug.Log("You are an observer!");
+            //    playerIdentifierLabel.text = "You are: Observer";
+            //}
+
 
         }
         else if (signifier == ServerToClientSignifiers.OpponentPlay)
