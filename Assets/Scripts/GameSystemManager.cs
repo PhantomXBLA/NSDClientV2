@@ -26,6 +26,7 @@ public class GameSystemManager : MonoBehaviour
     GameObject[] allButtons;
 
     bool inGame;
+    bool gameWon;
 
     void Start()
     {
@@ -103,7 +104,7 @@ public class GameSystemManager : MonoBehaviour
 
 
 
-
+        gameWon = false;
 
 
     }
@@ -111,14 +112,74 @@ public class GameSystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inGame == true)
+        if (inGame == true && gameWon == false)
         {
             if (allButtons[0].GetComponent<ButtonScript>().xHere == true && 
                 allButtons[1].GetComponent<ButtonScript>().xHere == true &&
                 allButtons[2].GetComponent<ButtonScript>().xHere == true)
             {
-                Debug.Log("yeah buddy that's a win for x, lets go");
+                Debug.Log("yeah buddy that's a win for x across the top, lets go");
+                gameWon = true;
             }
+
+            else if (allButtons[0].GetComponent<ButtonScript>().xHere == true &&
+                     allButtons[3].GetComponent<ButtonScript>().xHere == true &&
+                     allButtons[6].GetComponent<ButtonScript>().xHere == true)
+            {
+                Debug.Log("yeah buddy that's a win for x down the left side, lets go");
+                gameWon = true;
+            }
+
+            else if (allButtons[0].GetComponent<ButtonScript>().xHere == true &&
+                     allButtons[4].GetComponent<ButtonScript>().xHere == true &&
+                     allButtons[8].GetComponent<ButtonScript>().xHere == true)
+            {
+                Debug.Log("yeah buddy that's a win for x diagonal top left/bottom right, lets go");
+                gameWon = true;
+            }
+
+            else if (allButtons[2].GetComponent<ButtonScript>().xHere == true &&
+                     allButtons[4].GetComponent<ButtonScript>().xHere == true &&
+                     allButtons[6].GetComponent<ButtonScript>().xHere == true)
+            {
+                Debug.Log("yeah buddy that's a win for x diagonal top right/bottom left, lets go");
+                gameWon = true;
+            }
+
+            else if (allButtons[1].GetComponent<ButtonScript>().xHere == true &&
+                     allButtons[4].GetComponent<ButtonScript>().xHere == true &&
+                     allButtons[7].GetComponent<ButtonScript>().xHere == true)
+            {
+                Debug.Log("yeah buddy that's a win for x down the center, lets go");
+                gameWon = true;
+            }
+
+            else if (allButtons[2].GetComponent<ButtonScript>().xHere == true &&
+                     allButtons[5].GetComponent<ButtonScript>().xHere == true &&
+                     allButtons[8].GetComponent<ButtonScript>().xHere == true)
+            {
+                Debug.Log("yeah buddy that's a win for x down the right, lets go");
+                gameWon = true;
+            }
+
+            else if (allButtons[3].GetComponent<ButtonScript>().xHere == true &&
+                     allButtons[4].GetComponent<ButtonScript>().xHere == true &&
+                     allButtons[5].GetComponent<ButtonScript>().xHere == true)
+            {
+                Debug.Log("yeah buddy that's a win for x across the center, lets go");
+                gameWon = true;
+            }
+
+            else if (allButtons[6].GetComponent<ButtonScript>().xHere == true &&
+                     allButtons[7].GetComponent<ButtonScript>().xHere == true &&
+                     allButtons[8].GetComponent<ButtonScript>().xHere == true)
+            {
+                Debug.Log("yeah buddy that's a win for x across the bottom, lets go"); //need to test
+                gameWon = true;
+            }
+
+
+
         }
 
     }
