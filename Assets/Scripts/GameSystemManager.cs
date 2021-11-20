@@ -115,6 +115,7 @@ public class GameSystemManager : MonoBehaviour
         if (inGame == true && gameWon == false)
         {
             checkWinForX();
+            checkWinForO();
 
 
 
@@ -208,6 +209,73 @@ public class GameSystemManager : MonoBehaviour
                  allButtons[8].GetComponent<ButtonScript>().xHere == true)
         {
             Debug.Log("yeah buddy that's a win for x across the bottom, lets go");
+            gameWon = true;
+        }
+    }
+
+    void checkWinForO()
+    {
+        if (allButtons[0].GetComponent<ButtonScript>().oHere == true &&
+            allButtons[1].GetComponent<ButtonScript>().oHere == true &&
+            allButtons[2].GetComponent<ButtonScript>().oHere == true)
+        {
+            Debug.Log("yeah buddy that's a win for o across the top, lets go");
+            gameWon = true;
+        }
+
+        else if (allButtons[0].GetComponent<ButtonScript>().oHere == true &&
+                 allButtons[3].GetComponent<ButtonScript>().oHere == true &&
+                 allButtons[6].GetComponent<ButtonScript>().oHere == true)
+        {
+            Debug.Log("yeah buddy that's a win for o down the left side, lets go");
+            gameWon = true;
+        }
+
+        else if (allButtons[0].GetComponent<ButtonScript>().oHere == true &&
+                 allButtons[4].GetComponent<ButtonScript>().oHere == true &&
+                 allButtons[8].GetComponent<ButtonScript>().oHere == true)
+        {
+            Debug.Log("yeah buddy that's a win for o diagonal top left/bottom right, lets go");
+            gameWon = true;
+        }
+
+        else if (allButtons[2].GetComponent<ButtonScript>().oHere == true &&
+                 allButtons[4].GetComponent<ButtonScript>().oHere == true &&
+                 allButtons[6].GetComponent<ButtonScript>().oHere == true)
+        {
+            Debug.Log("yeah buddy that's a win for o diagonal top right/bottom left, lets go");
+            gameWon = true;
+        }
+
+        else if (allButtons[1].GetComponent<ButtonScript>().oHere == true &&
+                 allButtons[4].GetComponent<ButtonScript>().oHere == true &&
+                 allButtons[7].GetComponent<ButtonScript>().oHere == true)
+        {
+            Debug.Log("yeah buddy that's a win for o down the center, lets go");
+            gameWon = true;
+        }
+
+        else if (allButtons[2].GetComponent<ButtonScript>().oHere == true &&
+                 allButtons[5].GetComponent<ButtonScript>().oHere == true &&
+                 allButtons[8].GetComponent<ButtonScript>().oHere == true)
+        {
+            Debug.Log("yeah buddy that's a win for o down the right, lets go");
+            gameWon = true;
+        }
+
+        else if (allButtons[3].GetComponent<ButtonScript>().oHere == true &&
+                 allButtons[4].GetComponent<ButtonScript>().oHere == true &&
+                 allButtons[5].GetComponent<ButtonScript>().oHere == true)
+        {
+            Debug.Log("yeah buddy that's a win for o across the center, lets go");
+            gameWon = true;
+        }
+
+        else if (allButtons[6].GetComponent<ButtonScript>().oHere == true &&
+                 allButtons[7].GetComponent<ButtonScript>().oHere == true &&
+                 allButtons[8].GetComponent<ButtonScript>().oHere == true)
+        {
+            Debug.Log("yeah buddy that's a win for o across the bottom, lets go");
             gameWon = true;
         }
     }
