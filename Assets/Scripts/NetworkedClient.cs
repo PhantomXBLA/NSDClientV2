@@ -144,9 +144,10 @@ public class NetworkedClient : MonoBehaviour
         else if (signifier == ServerToClientSignifiers.GameStart)
         {
             gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.Game);
+
             int playerID = int.Parse(csv[1]);
 
-            if(playerID == 1)
+            if (playerID == 1)
             {
                 Debug.Log("You are player one");
                 playerIdentifierLabel.text = "You are: P1 (O)";
@@ -287,14 +288,14 @@ public class NetworkedClient : MonoBehaviour
                 string message = csv[2];
                 int playerID = int.Parse(csv[3]);
 
-                if (playerID == 1)
-                {
-                    textOutputP2.text = "P1: " + message;
-                }
-
                 if (playerID == 2)
                 {
-                    textOutputP1.text = "P2: " + message;
+                    textOutputP2.text = "P2: " + message;
+                }
+
+                if (playerID == 1)
+                {
+                    textOutputP1.text = "P1: " + message;
                 }
             }
 

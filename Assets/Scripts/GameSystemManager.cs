@@ -23,6 +23,7 @@ public class GameSystemManager : MonoBehaviour
     GameObject Grid;
     GameObject LoginScreen;
 
+    GameObject[] allButtons;
 
     void Start()
     {
@@ -95,6 +96,13 @@ public class GameSystemManager : MonoBehaviour
 
 
         changeState(GameStates.LoginMenu);
+
+
+
+
+
+
+
 
     }
 
@@ -180,6 +188,24 @@ public class GameSystemManager : MonoBehaviour
         {
             Grid.SetActive(true);
             WaitingForPlayerText.SetActive(false);
+
+            
+            allButtons = GameObject.FindGameObjectsWithTag("GameButton");
+
+            //allButtons[0].get
+            //allButtons[1] = GameObject.Find("Top Center");
+            //allButtons[2] = GameObject.Find("Top Right");
+            //allButtons[3] = GameObject.Find("Center Left");
+            //allButtons[4] = GameObject.Find("Center");
+            //allButtons[5] = GameObject.Find("Center Right");
+            //allButtons[6] = GameObject.Find("Bottom Left");
+            //allButtons[7] = GameObject.Find("Bottom Center");
+            //allButtons[8] = GameObject.Find("Bottom Right");
+
+            for (int i = 0; i < allButtons.Length; i++)
+            {
+                Debug.Log(allButtons[i]);
+            }
 
         }
 
