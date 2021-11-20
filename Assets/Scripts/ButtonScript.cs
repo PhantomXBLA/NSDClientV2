@@ -8,8 +8,8 @@ public class ButtonScript : MonoBehaviour
     public GameObject X;
     public GameObject O;
 
-    bool xHere = false;
-    bool oHere = false;
+    public bool xHere = false;
+    public bool oHere = false;
 
     GameObject NetworkedClient;
 

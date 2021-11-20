@@ -25,6 +25,8 @@ public class GameSystemManager : MonoBehaviour
 
     GameObject[] allButtons;
 
+    bool inGame;
+
     void Start()
     {
 
@@ -109,6 +111,15 @@ public class GameSystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (inGame == true)
+        {
+            if (allButtons[0].GetComponent<ButtonScript>().xHere == true && 
+                allButtons[1].GetComponent<ButtonScript>().xHere == true &&
+                allButtons[2].GetComponent<ButtonScript>().xHere == true)
+            {
+                Debug.Log("yeah buddy that's a win for x, lets go");
+            }
+        }
 
     }
 
@@ -167,7 +178,7 @@ public class GameSystemManager : MonoBehaviour
         Grid.SetActive(false);
 
         WaitingForPlayerText.SetActive(false);
-
+        inGame = false;
         if (newState == GameStates.LoginMenu)
         {
             LoginScreen.SetActive(true);
@@ -206,6 +217,8 @@ public class GameSystemManager : MonoBehaviour
             {
                 Debug.Log(allButtons[i]);
             }
+
+            inGame = true;
 
         }
 
