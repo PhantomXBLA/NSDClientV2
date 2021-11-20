@@ -18,6 +18,8 @@ public class ButtonScript : MonoBehaviour
 
     public float boxX;
     public float boxY;
+
+    public int totalMoves = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +68,7 @@ public class ButtonScript : MonoBehaviour
         }
 
         Debug.Log(gameObject.name + " X Here?: " + xHere + " O Here?: " + oHere);
+        totalMoves++;
     }
 
 }

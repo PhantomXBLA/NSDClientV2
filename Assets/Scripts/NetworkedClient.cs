@@ -299,6 +299,12 @@ public class NetworkedClient : MonoBehaviour
                 }
             }
 
+            else if (GameSignifier == ClientToServerSignifiers.WinForX)
+            {
+                gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.WinForX);
+
+            }
+
         }
 
 
@@ -319,6 +325,12 @@ public static class ClientToServerSignifiers
     public const int InGame = 4;
 
     public const int JoinReplay = 5;
+
+    public const int WinForX = 6;
+    public const int WinForO = 7;
+    public const int Tie = 8;
+
+
 }
 
 public static class GameSignifiers

@@ -23,6 +23,10 @@ public class GameSystemManager : MonoBehaviour
     GameObject Grid;
     GameObject LoginScreen;
 
+    GameObject XWinText;
+    GameObject OWinText;
+    GameObject TieText;
+
     GameObject[] allButtons;
 
     bool inGame;
@@ -87,6 +91,21 @@ public class GameSystemManager : MonoBehaviour
             else if (go.name == "ReplayButton")
             {
                 ReplayButton = go;
+            }
+
+            else if (go.name == "XWinsText")
+            {
+                XWinText = go;
+            }
+
+            else if (go.name == "OWinsText")
+            {
+                OWinText = go;
+            }
+
+            else if (go.name == "TieText")
+            {
+                TieText = go;
             }
         }
 
@@ -153,6 +172,8 @@ public class GameSystemManager : MonoBehaviour
             allButtons[2].GetComponent<ButtonScript>().xHere == true)
         {
             Debug.Log("yeah buddy that's a win for x across the top, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForX + "");
+
             gameWon = true;
         }
 
@@ -161,6 +182,8 @@ public class GameSystemManager : MonoBehaviour
                  allButtons[6].GetComponent<ButtonScript>().xHere == true)
         {
             Debug.Log("yeah buddy that's a win for x down the left side, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForX + "");
+
             gameWon = true;
         }
 
@@ -169,6 +192,8 @@ public class GameSystemManager : MonoBehaviour
                  allButtons[8].GetComponent<ButtonScript>().xHere == true)
         {
             Debug.Log("yeah buddy that's a win for x diagonal top left/bottom right, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForX + "");
+
             gameWon = true;
         }
 
@@ -177,6 +202,8 @@ public class GameSystemManager : MonoBehaviour
                  allButtons[6].GetComponent<ButtonScript>().xHere == true)
         {
             Debug.Log("yeah buddy that's a win for x diagonal top right/bottom left, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForX + "");
+
             gameWon = true;
         }
 
@@ -185,6 +212,8 @@ public class GameSystemManager : MonoBehaviour
                  allButtons[7].GetComponent<ButtonScript>().xHere == true)
         {
             Debug.Log("yeah buddy that's a win for x down the center, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForX + "");
+
             gameWon = true;
         }
 
@@ -193,6 +222,8 @@ public class GameSystemManager : MonoBehaviour
                  allButtons[8].GetComponent<ButtonScript>().xHere == true)
         {
             Debug.Log("yeah buddy that's a win for x down the right, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForX + "");
+
             gameWon = true;
         }
 
@@ -201,6 +232,8 @@ public class GameSystemManager : MonoBehaviour
                  allButtons[5].GetComponent<ButtonScript>().xHere == true)
         {
             Debug.Log("yeah buddy that's a win for x across the center, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForX + "");
+
             gameWon = true;
         }
 
@@ -209,6 +242,8 @@ public class GameSystemManager : MonoBehaviour
                  allButtons[8].GetComponent<ButtonScript>().xHere == true)
         {
             Debug.Log("yeah buddy that's a win for x across the bottom, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForX + "");
+
             gameWon = true;
         }
     }
@@ -311,8 +346,16 @@ public class GameSystemManager : MonoBehaviour
 
         Grid.SetActive(false);
 
+        ReplayButton.SetActive(false);
+
         WaitingForPlayerText.SetActive(false);
+
         inGame = false;
+
+        XWinText.SetActive(false);
+        OWinText.SetActive(false);
+        TieText.SetActive(false);
+
         if (newState == GameStates.LoginMenu)
         {
             LoginScreen.SetActive(true);
@@ -337,16 +380,6 @@ public class GameSystemManager : MonoBehaviour
             
             allButtons = GameObject.FindGameObjectsWithTag("GameButton");
 
-            //allButtons[0].get
-            //allButtons[1] = GameObject.Find("Top Center");
-            //allButtons[2] = GameObject.Find("Top Right");
-            //allButtons[3] = GameObject.Find("Center Left");
-            //allButtons[4] = GameObject.Find("Center");
-            //allButtons[5] = GameObject.Find("Center Right");
-            //allButtons[6] = GameObject.Find("Bottom Left");
-            //allButtons[7] = GameObject.Find("Bottom Center");
-            //allButtons[8] = GameObject.Find("Bottom Right");
-
             for (int i = 0; i < allButtons.Length; i++)
             {
                 Debug.Log(allButtons[i]);
@@ -361,6 +394,27 @@ public class GameSystemManager : MonoBehaviour
             Grid.SetActive(true);
         }
 
+        else if(newState == GameStates.WinForX)
+        {
+            Grid.SetActive(true);
+            ReplayButton.SetActive(true);
+            XWinText.SetActive(true);
+        }
+
+        else if (newState == GameStates.WinForO)
+        {
+            Grid.SetActive(true);
+            ReplayButton.SetActive(true);
+            OWinText.SetActive(true);
+        }
+
+        else if (newState == GameStates.Tie)
+        {
+            Grid.SetActive(true);
+            ReplayButton.SetActive(true);
+            TieText.SetActive(true);
+        }
+
     }
 }
 
@@ -371,5 +425,9 @@ static public class GameStates
     public const int WaitingInQueue = 3;
     public const int Game = 4;
     public const int Replay = 5;
+
+    public const int WinForX = 6;
+    public const int WinForO = 8;
+    public const int Tie = 8;
 }
 
