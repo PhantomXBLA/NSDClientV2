@@ -8,7 +8,8 @@ public class ButtonScript : MonoBehaviour
     public GameObject X;
     public GameObject O;
 
-
+    bool xHere = false;
+    bool oHere = false;
 
     GameObject NetworkedClient;
 
@@ -53,13 +54,18 @@ public class ButtonScript : MonoBehaviour
         //Destroy(this.gameObject);
         ///this.gameObject.getSetActive(false);
         this.gameObject.GetComponent<Button>().enabled = false;
+
+        if(shape == X)
+        {
+            xHere = true;
+        }
+
+        if (shape == O)
+        {
+            oHere = true;
+        }
+
+        Debug.Log(gameObject.name + " X Here?: " + xHere + " O Here?: " + oHere);
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.name == "X(Clone)")
-        {
-            Debug.Log("X Colliding");
-        }
-    }
 }
