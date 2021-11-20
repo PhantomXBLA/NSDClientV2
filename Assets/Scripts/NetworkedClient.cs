@@ -305,6 +305,12 @@ public class NetworkedClient : MonoBehaviour
 
             }
 
+            else if (GameSignifier == ClientToServerSignifiers.WinForO)
+            {
+                gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.WinForO);
+
+            }
+
         }
 
 

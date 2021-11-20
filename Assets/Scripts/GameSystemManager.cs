@@ -255,6 +255,8 @@ public class GameSystemManager : MonoBehaviour
             allButtons[2].GetComponent<ButtonScript>().oHere == true)
         {
             Debug.Log("yeah buddy that's a win for o across the top, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForO + "");
+
             gameWon = true;
         }
 
@@ -263,6 +265,8 @@ public class GameSystemManager : MonoBehaviour
                  allButtons[6].GetComponent<ButtonScript>().oHere == true)
         {
             Debug.Log("yeah buddy that's a win for o down the left side, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForO + "");
+
             gameWon = true;
         }
 
@@ -271,6 +275,8 @@ public class GameSystemManager : MonoBehaviour
                  allButtons[8].GetComponent<ButtonScript>().oHere == true)
         {
             Debug.Log("yeah buddy that's a win for o diagonal top left/bottom right, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForO + "");
+
             gameWon = true;
         }
 
@@ -279,6 +285,8 @@ public class GameSystemManager : MonoBehaviour
                  allButtons[6].GetComponent<ButtonScript>().oHere == true)
         {
             Debug.Log("yeah buddy that's a win for o diagonal top right/bottom left, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForO + "");
+
             gameWon = true;
         }
 
@@ -295,6 +303,8 @@ public class GameSystemManager : MonoBehaviour
                  allButtons[8].GetComponent<ButtonScript>().oHere == true)
         {
             Debug.Log("yeah buddy that's a win for o down the right, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForO + "");
+
             gameWon = true;
         }
 
@@ -303,6 +313,8 @@ public class GameSystemManager : MonoBehaviour
                  allButtons[5].GetComponent<ButtonScript>().oHere == true)
         {
             Debug.Log("yeah buddy that's a win for o across the center, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForO + "");
+
             gameWon = true;
         }
 
@@ -311,6 +323,8 @@ public class GameSystemManager : MonoBehaviour
                  allButtons[8].GetComponent<ButtonScript>().oHere == true)
         {
             Debug.Log("yeah buddy that's a win for o across the bottom, lets go");
+            NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.WinForO + "");
+
             gameWon = true;
         }
     }
