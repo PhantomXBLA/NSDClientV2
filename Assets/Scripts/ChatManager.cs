@@ -36,7 +36,7 @@ public class ChatManager : MonoBehaviour
         }
 
         sendButton.GetComponent<Button>().onClick.AddListener(OnSendButtonPressed);
-        chatInput.GetComponent<InputField>().characterLimit = 10;
+        chatInput.GetComponent<InputField>().characterLimit = 10; // sets inputfields limit to 10 so you cant send messages that are too long
 
 
     }
@@ -45,23 +45,23 @@ public class ChatManager : MonoBehaviour
     {
         if (dropdownMenu.value == 1)
         {
-            //chat.text = dropdownMenu.options[1].text;
-            textMessage = dropdownMenu.options[1].text;
+
+            textMessage = dropdownMenu.options[1].text; //sets the message to send to the server as the one you select
             NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + ChatSignifiers.PremadeMessage + "," + textMessage);
 
         }
 
         if (dropdownMenu.value == 2)
         {
-            //chat.text = dropdownMenu.options[2].text;
-            textMessage = dropdownMenu.options[2].text;
+
+            textMessage = dropdownMenu.options[2].text; 
             NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + ChatSignifiers.PremadeMessage + "," + textMessage);
 
         }
 
         if (dropdownMenu.value == 3)
         {
-            //chat.text = dropdownMenu.options[3].text;
+
             textMessage = dropdownMenu.options[3].text;
             NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + ChatSignifiers.PremadeMessage + "," + textMessage);
 
@@ -69,7 +69,7 @@ public class ChatManager : MonoBehaviour
 
         if (dropdownMenu.value == 4)
         {
-            //chat.text = dropdownMenu.options[4].text;
+
             textMessage = dropdownMenu.options[4].text;
             NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + ChatSignifiers.PremadeMessage + "," + textMessage);
 
@@ -80,9 +80,9 @@ public class ChatManager : MonoBehaviour
 
     void OnSendButtonPressed()
     {
-        string message = chatInput.GetComponent<InputField>().text;
+        string message = chatInput.GetComponent<InputField>().text; //sets the message to send to the server as the one you type
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + ChatSignifiers.Message + "," + message);
-        chatInput.GetComponent<InputField>().text = "";
+        chatInput.GetComponent<InputField>().text = ""; //clears the input field after sending your message
 
 
     }

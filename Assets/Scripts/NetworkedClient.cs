@@ -135,22 +135,22 @@ public class NetworkedClient : MonoBehaviour
 
         if (signifier == ServerToClientSignifiers.AccountCreationComplete)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.MainMenu);
+            gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.MainMenu); //sets the state to main menu after account creation
         }
         else if(signifier == ServerToClientSignifiers.LoginComplete)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.MainMenu);
+            gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.MainMenu); //sets the state to login after logging in
         }
         else if (signifier == ServerToClientSignifiers.GameStart)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.Game);
+            gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.Game); //sets the state to the game state after gamestart is called
 
             int playerID = int.Parse(csv[1]);
 
             if (playerID == 1)
             {
                 Debug.Log("You are player one");
-                playerIdentifierLabel.text = "You are: P1 (O)";
+                playerIdentifierLabel.text = "You are: P1 (O)"; //sets label to represent player ID
             }
 
             if (playerID == 2)
@@ -167,10 +167,6 @@ public class NetworkedClient : MonoBehaviour
 
 
         }
-        else if (signifier == ServerToClientSignifiers.OpponentPlay)
-        {
-            Debug.Log("opponent play");
-        }
 
         else if (signifier == ServerToClientSignifiers.GameEnd)
         {
@@ -179,14 +175,14 @@ public class NetworkedClient : MonoBehaviour
 
             for (int i = 0; i < allShapes.Length; i++)
             {
-                Destroy(allShapes[i]);
+                Destroy(allShapes[i]); // destroys all currently placed shapes to make room for the replay ones
             }
 
             GameObject[] allButtons = GameObject.FindGameObjectsWithTag("GameButton");
 
             for (int i = 0; i < allButtons.Length; i++)
             {
-                allButtons[i].GetComponent<Button>().enabled = true;
+                allButtons[i].GetComponent<Button>().enabled = true; //re-enables all the buttons that were disabled
             }
 
 
@@ -194,19 +190,18 @@ public class NetworkedClient : MonoBehaviour
         }
         else if (signifier == ServerToClientSignifiers.SendReplay)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.Replay);
+            gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.Replay); //enter replay state
 
 
 
             Button replayButton;
             string msgReceived = csv[1];
-            Debug.Log("yeet" + msgReceived);
             replayButton = GameObject.Find(msgReceived).GetComponent<Button>();
 
             
 
 
-            if (playerTurn == 1)
+            if (playerTurn == 1) //this is how the replay system alternates which shape should be replayed
             {
                 replayButton.GetComponent<ButtonScript>().drawShape(O, replayButton.transform.position.x, replayButton.transform.position.y);
                 playerTurn = 2;
@@ -218,7 +213,7 @@ public class NetworkedClient : MonoBehaviour
                 playerTurn = 1;
             }
 
-            //replayButton.GetComponent<ButtonScript>().drawShape(O, replayButton.transform.position.x, replayButton.transform.position.y);
+            
 
 
 
@@ -241,7 +236,6 @@ public class NetworkedClient : MonoBehaviour
 
                 string buttonName = (csv[4]);
                 int playerID = int.Parse(csv[5]);
-                Debug.Log(buttonName);
 
 
 
@@ -250,14 +244,14 @@ public class NetworkedClient : MonoBehaviour
 
                 if (playerID == 1)
                 {
-                    ButtonPressed.GetComponent<ButtonScript>().drawShape(O, boxX, boxY);
-                    playerTurnLabel.text = "Player 2's Turn (X)";
+                    ButtonPressed.GetComponent<ButtonScript>().drawShape(O, boxX, boxY); //calls the draw shape function on the button gameobject that was sent by the server, player one is always O
+                    playerTurnLabel.text = "Player 2's Turn (X)"; // sets the player turn label to the other player
 
                 }
                 else
                 {
-                    ButtonPressed.GetComponent<ButtonScript>().drawShape(X, boxX, boxY);
-                    playerTurnLabel.text = "Player 1's Turn (O)";
+                    ButtonPressed.GetComponent<ButtonScript>().drawShape(X, boxX, boxY); //calls the draw shape function on the button gameobject that was sent by the server, player two is always X
+                    playerTurnLabel.text = "Player 1's Turn (O)"; // sets the player turn label to the other player
 
                 }
 
@@ -273,12 +267,12 @@ public class NetworkedClient : MonoBehaviour
 
                 if(playerID == 1)
                 {
-                    textOutputP1.text = "P1: "+ premadeMessage;
+                    textOutputP1.text = "P1: "+ premadeMessage; // if the player that sent the message was P1, it changes the p1 text to the message sent
                 }
 
                if(playerID == 2)
                 {
-                    textOutputP2.text = "P2: " + premadeMessage;
+                    textOutputP2.text = "P2: " + premadeMessage; // if the player that sent the message was P2, it changes the p2 text to the message sent
                 }
 
                 Debug.Log(premadeMessage);
@@ -304,13 +298,13 @@ public class NetworkedClient : MonoBehaviour
 
             else if (GameSignifier == ClientToServerSignifiers.WinForX)
             {
-                gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.WinForX);
+                gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.WinForX); // if X wins, set the state accordingly
 
             }
 
             else if (GameSignifier == ClientToServerSignifiers.WinForO)
             {
-                gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.WinForO);
+                gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.WinForO); // if O wins, set the state accordingly
 
             }
 

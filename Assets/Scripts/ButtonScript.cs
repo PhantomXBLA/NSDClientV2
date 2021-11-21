@@ -47,14 +47,11 @@ public class ButtonScript : MonoBehaviour
         
 
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.InGame + "," + GameSignifiers.PlayerMoved + "," + buttonName + "," + boxX + "," +boxY);
-        //drawShape(X, boxX, boxY);
     }             
 
     public void drawShape(GameObject shape, float BoxX, float BoxY)
     {
         Instantiate(shape, new Vector3(BoxX, BoxY), Quaternion.identity);
-        //Destroy(this.gameObject);
-        ///this.gameObject.getSetActive(false);
         this.gameObject.GetComponent<Button>().enabled = false;
 
         if(shape == X)

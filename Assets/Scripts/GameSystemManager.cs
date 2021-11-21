@@ -131,7 +131,7 @@ public class GameSystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inGame == true && gameWon == false)
+        if (inGame == true && gameWon == false) //checks for a win if the client is in game and it's not already won
         {
             checkWinForX();
             checkWinForO();
@@ -246,7 +246,7 @@ public class GameSystemManager : MonoBehaviour
 
             gameWon = true;
         }
-    }
+    } // checking for possible winning combinations for X
 
     void checkWinForO()
     {
@@ -327,7 +327,7 @@ public class GameSystemManager : MonoBehaviour
 
             gameWon = true;
         }
-    }
+    } // checking for possible winning combinations for O
 
     public void OnJoinGameRoomButtonPressed()
     {
