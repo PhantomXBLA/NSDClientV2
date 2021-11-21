@@ -159,11 +159,11 @@ public class NetworkedClient : MonoBehaviour
                 playerIdentifierLabel.text = "You are: P2 (X)";
             }
 
-            //else
-            //{
-            //    Debug.Log("You are an observer!");
-            //    playerIdentifierLabel.text = "You are: Observer";
-            //}
+           if(playerID == 3)
+            {
+                Debug.Log("You are an observer!");
+                playerIdentifierLabel.text = "You are: Observer";
+            }
 
 
         }
