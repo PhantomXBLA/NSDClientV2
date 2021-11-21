@@ -338,7 +338,6 @@ public class GameSystemManager : MonoBehaviour
     public void OnReplayButtonPressed()
     {
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifiers.JoinReplay + "");
-        changeState(GameStates.Replay);
 
     }
 
@@ -382,9 +381,6 @@ public class GameSystemManager : MonoBehaviour
         else if (newState == GameStates.WaitingInQueue)
         {
             WaitingForPlayerText.SetActive(true);
-
-
-
         }
         else if (newState == GameStates.Game)
         {
@@ -406,6 +402,7 @@ public class GameSystemManager : MonoBehaviour
         else if(newState == GameStates.Replay)
         {
             Grid.SetActive(true);
+            ReplayButton.SetActive(false);
         }
 
         else if(newState == GameStates.WinForX)

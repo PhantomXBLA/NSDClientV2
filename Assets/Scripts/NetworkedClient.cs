@@ -194,7 +194,7 @@ public class NetworkedClient : MonoBehaviour
         }
         else if (signifier == ServerToClientSignifiers.SendReplay)
         {
-
+            gameSystemManager.GetComponent<GameSystemManager>().changeState(GameStates.Replay);
 
 
 
@@ -202,6 +202,9 @@ public class NetworkedClient : MonoBehaviour
             string msgReceived = csv[1];
             Debug.Log("yeet" + msgReceived);
             replayButton = GameObject.Find(msgReceived).GetComponent<Button>();
+
+            
+
 
             if (playerTurn == 1)
             {
