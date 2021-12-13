@@ -43,7 +43,7 @@ public class ChatManager : MonoBehaviour
 
     public void chatOption(int selection)
     {
-        if (dropdownMenu.value == 1)
+        if (dropdownMenu.value == ChatMenuItems.dropdownMenu1)
         {
 
             textMessage = dropdownMenu.options[1].text; //sets the message to send to the server as the one you select
@@ -51,7 +51,7 @@ public class ChatManager : MonoBehaviour
 
         }
 
-        if (dropdownMenu.value == 2)
+        if (dropdownMenu.value == ChatMenuItems.dropdownMenu2)
         {
 
             textMessage = dropdownMenu.options[2].text; 
@@ -59,7 +59,7 @@ public class ChatManager : MonoBehaviour
 
         }
 
-        if (dropdownMenu.value == 3)
+        if (dropdownMenu.value == ChatMenuItems.dropdownMenu3)
         {
 
             textMessage = dropdownMenu.options[3].text;
@@ -67,7 +67,7 @@ public class ChatManager : MonoBehaviour
 
         }
 
-        if (dropdownMenu.value == 4)
+        if (dropdownMenu.value == ChatMenuItems.dropdownMenu4)
         {
 
             textMessage = dropdownMenu.options[4].text;
@@ -85,5 +85,13 @@ public class ChatManager : MonoBehaviour
         chatInput.GetComponent<InputField>().text = ""; //clears the input field after sending your message
 
 
+    }
+
+    public static class ChatMenuItems
+    {
+        public const int dropdownMenu1 = 1;
+        public const int dropdownMenu2 = 2;
+        public const int dropdownMenu3 = 3;
+        public const int dropdownMenu4 = 4;
     }
 }

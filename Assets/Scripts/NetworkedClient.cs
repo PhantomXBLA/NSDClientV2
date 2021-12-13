@@ -147,19 +147,19 @@ public class NetworkedClient : MonoBehaviour
 
             int playerID = int.Parse(csv[1]);
 
-            if (playerID == 1)
+            if (playerID == PlayerIDCheck.PlayerID1)
             {
                 Debug.Log("You are player one");
                 playerIdentifierLabel.text = "You are: P1 (O)"; //sets label to represent player ID
             }
 
-            if (playerID == 2)
+            if (playerID == PlayerIDCheck.PlayerID2)
             {
                 Debug.Log("You are player two");
                 playerIdentifierLabel.text = "You are: P2 (X)";
             }
 
-           if(playerID == 3)
+           if(playerID == PlayerIDCheck.ObserverID)
             {
                 Debug.Log("You are an observer!");
                 playerIdentifierLabel.text = "You are: Observer";
@@ -201,16 +201,16 @@ public class NetworkedClient : MonoBehaviour
             
 
 
-            if (playerTurn == 1) //this is how the replay system alternates which shape should be replayed
+            if (playerTurn == PlayerIDCheck.PlayerID1) //this is how the replay system alternates which shape should be replayed
             {
                 replayButton.GetComponent<ButtonScript>().drawShape(O, replayButton.transform.position.x, replayButton.transform.position.y);
-                playerTurn = 2;
+                playerTurn = PlayerIDCheck.PlayerID2;
             }
 
-            else if (playerTurn == 2)
+            else if (playerTurn == PlayerIDCheck.PlayerID2)
             {
                 replayButton.GetComponent<ButtonScript>().drawShape(X, replayButton.transform.position.x, replayButton.transform.position.y);
-                playerTurn = 1;
+                playerTurn = PlayerIDCheck.PlayerID1;
             }
 
             
@@ -242,7 +242,7 @@ public class NetworkedClient : MonoBehaviour
                 ButtonPressed = GameObject.Find(buttonName).GetComponent<Button>();
                
 
-                if (playerID == 1)
+                if (playerID == PlayerIDCheck.PlayerID1)
                 {
                     ButtonPressed.GetComponent<ButtonScript>().drawShape(O, boxX, boxY); //calls the draw shape function on the button gameobject that was sent by the server, player one is always O
                     playerTurnLabel.text = "Player 2's Turn (X)"; // sets the player turn label to the other player
@@ -265,12 +265,12 @@ public class NetworkedClient : MonoBehaviour
                 string premadeMessage = csv[2];
                 int playerID = int.Parse(csv[3]);
 
-                if(playerID == 1)
+                if(playerID == PlayerIDCheck.PlayerID1)
                 {
                     textOutputP1.text = "P1: "+ premadeMessage; // if the player that sent the message was P1, it changes the p1 text to the message sent
                 }
 
-               if(playerID == 2)
+               if(playerID == PlayerIDCheck.PlayerID2)
                 {
                     textOutputP2.text = "P2: " + premadeMessage; // if the player that sent the message was P2, it changes the p2 text to the message sent
                 }
@@ -285,12 +285,12 @@ public class NetworkedClient : MonoBehaviour
                 string message = csv[2];
                 int playerID = int.Parse(csv[3]);
 
-                if (playerID == 2)
+                if (playerID == PlayerIDCheck.PlayerID2)
                 {
                     textOutputP2.text = "P2: " + message;
                 }
 
-                if (playerID == 1)
+                if (playerID == PlayerIDCheck.PlayerID1)
                 {
                     textOutputP1.text = "P1: " + message;
                 }
@@ -364,4 +364,11 @@ public static class ServerToClientSignifiers
 
 
 
+}
+
+public static class PlayerIDCheck
+{
+    public const int PlayerID1 = 1;
+    public const int PlayerID2 = 2;
+    public const int ObserverID = 3;
 }
